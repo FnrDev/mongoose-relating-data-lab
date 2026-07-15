@@ -11,6 +11,11 @@ router.get('/', async (req, res) => {
     res.render('listings/all-listings.ejs', { listings })
 })
 
+router.get('/:id', async (req, res) => {
+    const listing = await Listing.findById(req.params.id)
+    res.render('listings/listing-details.ejs', { listing })
+})
+
 router.get('/:id/edit', async (req, res) => {
     res.render('listings/edit-lising.ejs')
 })
