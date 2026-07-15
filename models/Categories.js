@@ -4,6 +4,6 @@ const categoriesSchema = new mongoose.Schema({
     name: { type: String, minLength: 3, maxLength: 100 }
 })
 
-const Caetgories = mongoose.model('Listing', categoriesSchema)
+const Caetgories = mongoose.model('Category', categoriesSchema)
 
 module.exports = Caetgories
