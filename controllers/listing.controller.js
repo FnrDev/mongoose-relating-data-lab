@@ -1,22 +1,22 @@
 const express = require('express')
 const Listing = require('../models/Listing')
-const router = express.router()
+const router = express.Router()
 
 router.get('/new', async (req, res) => {
-    res.render('create-listing.ejs')
+    res.render('listings/create-listing.ejs')
 })
 
 router.get('/', async (req, res) => {
     const listings = await Listing.find().populate('owner')
-    res.render('all-listings.ejs', { listings })
+    res.render('listings/all-listings.ejs', { listings })
 })
 
 router.get('/:id/edit', async (req, res) => {
-    res.render('edit-lising.ejs')
+    res.render('listings/edit-lising.ejs')
 })
 
 router.put('/:id', async (req, res) => {
-    await Listing.findByIdAndUpdate(req.params.id, req.body)
+    await Listing.findByIdAndUpdate(req.params.id, req.body).populate('user').populate('favouritedByUsers')
     res.redirect('/listings')
 })
 

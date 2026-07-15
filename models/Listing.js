@@ -8,6 +8,10 @@ const listingSchema = new mongoose.Schema({
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
+    },
+    favouritedByUsers: {
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: "User"
     }
 })
 

@@ -6,6 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>All listings</h1>
+    <% for(let listing of listings) { %>
+        <p>Street: <%= listing.streetAddress %></p>
+        <p>City: <%= listing.city %></p>
+        <p>Price: <%= listing.price %></p>
+        <p>Size: <%= listing.size %></p>
+        <p>Owner: <%= listing.owner.username %></p>
+    <% } %>
 </body>
 </html>

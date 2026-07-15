@@ -1,5 +1,5 @@
 const express = require('express')
-const router = express.router()
+const router = express.Router()
 const Categoires = require('../models/Categories')
 
 router.get('/new', async (req, res) => {
